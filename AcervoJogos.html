@@ -14,11 +14,14 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <script src='./js/page.js'></script>
+
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/jquery-3.5.1.slim.min.js"></script>
     <link rel="stylesheet" href="./css/jogos.css" />
     <script>
+    
       var cardgrouplist = [];
       async function loadDataByfilter(e){
         cardgrouplist=[];
@@ -54,33 +57,27 @@
 
         console.log(document.getElementById("cardgroupcontent"));
       }
-      async function fetchData(url) {
-        content = null;
-        content = await fetch(url, {
-          method: "GET",
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .catch((err) => console.log(err.message));
-      }
+     
       (function (window, document, undefined) {
         // code that should be taken care of right away
 
         window.onload = init;
         async function init() {
+          getMenu()
           document.getElementById("pesquisar").addEventListener("click", function(e){ loadDataByfilter(e) });
           await fetchData('https://api.rawg.io/api/games?page_size=20');
+          hideSpinner();
           buildPage()
         }
       })(window, document, undefined);
    
     </script>
     <title>Hello, world!</title>
+
   </head>
-  <body>
+  <body >
     <!-- <img src='/img/Menu.png' /> -->
-    <div id='nav-'></div>
+    <div id='nav'></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Buscar jogo"id='cpesquisa' aria-label="Search">
@@ -89,6 +86,11 @@
       </div>
     </nav>
     <div id='cardgroupcontent' class="container col-12"></div>
-
+    <div id='spiner' class="container text-center" display='none'>
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   </body>
 </html>
+

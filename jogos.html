@@ -14,6 +14,8 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <script src='./js/page.js'></script>
+
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/jquery-3.5.1.slim.min.js"></script>
@@ -85,6 +87,8 @@
 window.onload = init;
 
   function init(){
+    getMenu();
+
     for(i=0;i<data.length;i+=4){
           cardgrouplist.push(data.slice(i,i+4))
       }
@@ -119,28 +123,7 @@ window.onload = init;
   </head>
   <body>
     <!-- <img src='/img/Menu.png' /> -->
-    <nav class="navbar navbar-expand-lg navbar-light nav-color col-12">
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav w-100">
-          <a class="navbar-brand" href="./jogos.html">
-            <img src="img/video-game.png" width="30" height="25" alt="" />
-            Jogos
-          </a>
-          <a class="navbar-brand" href="./AcervoJogos.html">
-            <img src="img/video-camera.png" width="30" height="25" alt="" />
-            Acervo de jogos
-          </a>
-          <a class="navbar-brand" href="./images.html">
-            <img src="img/painting.png" width="30" height="25" alt="" />
-            Imagens
-          </a>
-          <a class="navbar-brand" href="./document.html">
-            <img src="img/document.png" width="30" height="25" alt="" />
-            Documentos
-          </a>
-        </div>
-      </div>
-    </nav>
+    <div id='nav'></div>
     <div id='cardgroupcontent' class="container col-12"></div>
   </body>
 </html>

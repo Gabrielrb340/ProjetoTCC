@@ -1,8 +1,6 @@
-(function (window, document, undefined) {
-    // code that should be taken care of right away
 
-    window.onload = init;
-   function init(){
+   function getMenu(){
+     console.log('called me')
     document.getElementById("nav").innerHTML += ` <nav class="navbar navbar-expand-lg navbar-light nav-color col-12">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav w-100">
@@ -16,20 +14,31 @@
         </a>
         <a class="navbar-brand" href="./images.html">
           <img src="img/painting.png" width="30" height="25" alt="" />
-          Imagens
+          Screenshots
         </a>
         <a class="navbar-brand" href="./document.html">
           <img src="img/document.png" width="30" height="25" alt="" />
-          Documentos
+          Generos
         </a>
       </div>
     </div>
   </nav>`;
 
    }
+function hideSpinner(){
+  document.getElementById("spiner").classList.add('invisible');
+}
+function showSpinner(){
+  document.getElementById("spiner").classList.remove('invisible');
+}
 
-  })(window, document, undefined);
-
-
-
- 
+async function fetchData(url) {
+  content = null;
+  content = await fetch(url, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err.message));
+}

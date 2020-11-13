@@ -14,65 +14,83 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <script src='./js/page.js'></script>
+
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/jquery-3.5.1.slim.min.js"></script>
     <link rel="stylesheet" href="./css/jogos.css" />
     <script>
+    
+      var cardgrouplist = [];
+      async function loadDataByfilter(e){
+        cardgrouplist=[];
+        document.getElementById("cardgroupcontent").innerHTML = '';
+        e.preventDefault();
+        await fetchData(`https://api.rawg.io/api/games?search=${document.getElementById('cpesquisa').value}?page_size=20`)
+         buildPage()
+      }
+      var content = null;
+      async function buildPage() {
+        for (i = 0; i < content.results.length; i += 4) {
+          cardgrouplist.push(content.results.slice(i, i + 4));
+        }
+        var finalcardgroup = "";
+        cardgrouplist.forEach((element) => {
+          var el = '<div class="card-group">';
+          element.forEach((item) => {
+            const html = `<div class="card">
+          <img class="card-img-top" src="${item.image_background}" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">${item.name}</h5>
+            <p class="card-text">
+            </p>
+            
+          </div>
+        </div>`;
+            el += html;
+          });
+          el += "</div>";
+          finalcardgroup += el;
+        });
+        document.getElementById("cardgroupcontent").innerHTML += finalcardgroup;
 
-      (function(window, document, undefined){
+        console.log(document.getElementById("cardgroupcontent"));
+      }
+     
+      (function (window, document, undefined) {
+        // code that should be taken care of right away
 
-// code that should be taken care of right away
-
-window.onload = init;
-var content = [
-   {
-      "nome":"BloodBorn",
-      "Des":"Bloodborne é um RPG eletrônico de ação produzido pela FromSoftware e publicado pela Sony Computer Entertainment a 24 de Março de 2015 em exclusivo para a PlayStation 4, sendo o quarto game da serie Souls. Bloodborne foi realizado por Hidetaka Miyazaki",
-      "imgcontent":"https://images.squarespace-cdn.com/content/v1/55ef0e29e4b099e22cdc9eea/1552501920218-C3XFFVOA9J81VXWK55DV/ke17ZwdGBToddI8pDm48kNvT88LknE-K9M4pGNO0Iqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USOFn4xF8vTWDNAUBm5ducQhX-V3oVjSmr829Rco4W2Uo49ZdOtO_QXox0_W7i2zEA/bloodb2.jpg?format=2500w"
-   },
-   {
-      "nome":"League of legends",
-      "Des":"League of Legends é um jogo eletrônico online gratuito, do gênero batalha multijogador, desenvolvido e publicado pela Riot Games em 2009, para os sistemas Microsoft Windows e Mac OS X, inspirado no modo Defense of the Ancients do jogo Warcraft III: The Frozen Throne.",
-      "imgcontent":"https://assets.b9.com.br/wp-content/uploads/2020/08/legue-of-legends-heder-x.jpg"
-   },
+        window.onload = init;
+        async function init() {
+          getMenu()
+          document.getElementById("pesquisar").addEventListener("click", function(e){ loadDataByfilter(e) });
+          await fetchData('https://api.rawg.io/api/genres');
+          hideSpinner();
+          buildPage()
+        }
+      })(window, document, undefined);
    
-]
-  function init(){
-    fetch('https://gateway.marvel.com/v1/public/characters?apikey=5ba16c467631fb1b4d9bd7170ca95247&hash=0144f73727616758a7a63483bcd2072b&ts=1', { method: 'GET' })
-    .then(response => console.log(response.json()))
-    .then(texto => console.log(texto))
-    .catch(err => console.log(err.message))
-  }
-
-})(window, document, undefined)
-      
     </script>
     <title>Hello, world!</title>
+
   </head>
-  <body>
+  <body >
     <!-- <img src='/img/Menu.png' /> -->
-    <nav class="navbar navbar-expand-lg navbar-light nav-color col-12">
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav w-100">
-          <a class="navbar-brand" href="./jogos.html">
-            <img src="img/video-game.png" width="30" height="25" alt="" />
-            Jogos
-          </a>
-          <a class="navbar-brand" href="./AcervoJogos.html">
-            <img src="img/video-camera.png" width="30" height="25" alt="" />
-            Acervo de Jogos
-          </a>
-          <a class="navbar-brand" href="./images.html">
-            <img src="img/painting.png" width="30" height="25" alt="" />
-            Imagens
-          </a>
-          <a class="navbar-brand" href="./document.html">
-            <img src="img/document.png" width="30" height="25" alt="" />
-            Documentos
-          </a>
-        </div>
+    <div id='nav'></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar jogo"id='cpesquisa' aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" id="pesquisar">Pesquisar jogo</button>
+        </form>
       </div>
     </nav>
+    <div id='cardgroupcontent' class="container col-12"></div>
+    <div id='spiner' class="container text-center" display='none'>
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   </body>
 </html>
+
