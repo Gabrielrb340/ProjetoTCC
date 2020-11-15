@@ -87,7 +87,6 @@
 window.onload = init;
 
   function init(){
-    getMenu();
 
     for(i=0;i<data.length;i+=4){
           cardgrouplist.push(data.slice(i,i+4))
@@ -123,7 +122,12 @@ window.onload = init;
   </head>
   <body>
     <!-- <img src='/img/Menu.png' /> -->
-    <div id='nav'></div>
-    <div id='cardgroupcontent' class="container col-12"></div>
+    <img src="./img/menu.png" usemap="#image-map">
+
+    <map name="image-map">
+        <area target="_self" alt="jogos" title="jogos" href="./jogos.html" coords="141,66,3,12" shape="rect">
+        <area target="_self" alt="AcervoJogos" title="AcervoJogos" href="./AcervoJogos.html" coords="142,11,377,62" shape="rect">
+        <area target="_self" alt="Imagens" title="Imagens" href="./images.html" coords="388,14,584,62" shape="rect">
+    </map>    <div id='cardgroupcontent' class="container col-12"></div>
   </body>
 </html>
