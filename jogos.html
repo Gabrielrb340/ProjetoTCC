@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -15,6 +15,7 @@
       crossorigin="anonymous"
     />
     <script src='./js/page.js'></script>
+    <script src='./js/popup.js'></script>
 
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/popper.min.js"></script>
@@ -27,57 +28,56 @@
           nome: "BloodBorn",
           Des:
             "Bloodborne é um RPG eletrônico de ação produzido pela FromSoftware e publicado pela Sony Computer Entertainment a 24 de Março de 2015 em exclusivo para a PlayStation 4, sendo o quarto game da serie Souls. Bloodborne foi realizado por Hidetaka Miyazaki",
-          imgcontent:
-            "https://images.squarespace-cdn.com/content/v1/55ef0e29e4b099e22cdc9eea/1552501920218-C3XFFVOA9J81VXWK55DV/ke17ZwdGBToddI8pDm48kNvT88LknE-K9M4pGNO0Iqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USOFn4xF8vTWDNAUBm5ducQhX-V3oVjSmr829Rco4W2Uo49ZdOtO_QXox0_W7i2zEA/bloodb2.jpg?format=2500w",
+          imgcontent:"./img/bloodb2.jpg"
         },
         {
           nome: "League of legends",
           Des:
             "League of Legends é um jogo eletrônico online gratuito, do gênero batalha multijogador, desenvolvido e publicado pela Riot Games em 2009, para os sistemas Microsoft Windows e Mac OS X, inspirado no modo Defense of the Ancients do jogo Warcraft III: The Frozen Throne.",
           imgcontent:
-            "https://assets.b9.com.br/wp-content/uploads/2020/08/legue-of-legends-heder-x.jpg",
+            "./img/lol.jpg",
         },
         {
           nome: "Code Vein",
           Des:
             "Code Vein é um jogo eletrônico de RPG de ação em desenvolvimento e a ser publicado pela Bandai Namco Entertainment para Playstation 4, Xbox One e Windows em 2019.",
           imgcontent:
-            "https://http2.mlstatic.com/code-vein-ps4-midia-fisica-original-lacrado-D_NQ_NP_765299-MLB32346536977_092019-F.jpg",
+            "./img/code.jpg",
         },
         {
           nome: "Never winter",
           Des:
             "Neverwinter Nights é uma série de videogames desenvolvidos pela BioWare e Obsidian Entertainment, com base no cenário da campanha Forgotten Realms do jogo de RPG Dungeons & Dragons. Não está relacionado ao jogo online de 1991 com o mesmo nome distribuído pela AOL.",
           imgcontent:
-            "https://s2.glbimg.com/3nKn4aJPwzu6cUf6qWBSi9E4lCM=/695x0/s.glbimg.com/po/tt2/f/original/2015/05/12/neverwinter-combate.png",
+            "./img/nw.jpg",
         },
         {
           nome: "Dark souls",
           Des:
             "A série Souls refere-se a um conjunto de videojogos do género role-playing game de acção, criados e produzidos pela companhia japonesa FromSoftware. O primeiro jogo da série, Demon's Souls, foi lançado em 2009 em exclusivo para a PlayStation 3",
           imgcontent:
-            "https://tecnoblog.net/meiobit/wp-content/uploads/2016/05/20160511dark-souls-3.jpg",
+            "./img/darks.jpg",
         },
         {
           nome: "Pes 2021",
           Des:
             "eFootball Pro Evolution Soccer 2020, é um jogo eletrônico de futebol desenvolvido pela PES Production e publicado pela Konami. O jogo foi anunciado na E3 2019 em 11 de Junho de 2019 e ganhou o prêmio de Melhor Jogo de Esportes da E3 2019",
           imgcontent:
-            "https://s2.glbimg.com/U1BFreR5ex4gbOrWOC2_hGa_lJU=/0x0:1430x773/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/c/p/FbFSQjRmu6G15blAq2zQ/captura-de-tela-2020-07-16-as-11.27.28.png",
+            "./img/pes.jpg",
         },
         {
           nome: "The Witcher 3",
           Des:
             "The Witcher 3: Wild Hunt é um jogo eletrônico de ação do subgênero RPG desenvolvido pela CD Projekt RED e lançado no dia 19 de maio de 2015 para as plataformas Microsoft Windows, PlayStation 4, Xbox One e em outubro de 2019 para o Nintendo Switch, sendo o terceiro título da série de jogos The Witcher",
           imgcontent:
-            "https://cdn.pocket-lint.com/r/s/970x/assets/images/133845-games-review-the-witcher-3-wild-hunt-review-image1-07yik9ul5s-jpg.webp",
+            "./img/tw3.jpg",
         },
         {
           nome: "Fifa",
           Des:
             "FIFA 21 é um videogame de simulação de esportes desenvolvido pela Electronic Arts e publicado pela mesma empresa. O jogo foi anunciado em 19 de junho de 2020. Kylian Mbappé é o novo ícone do jogo neste ano. O jogo também terá mudanças nos consoles de jogos da próxima geração",
           imgcontent:
-            "https://s2.glbimg.com/RF5exNIGnyGnfA3ofWzQ7eagZ0A=/0x0:2048x1152/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/n/P/KkQdZmQxATWd8NatkKlg/ea1tlekxyaihx6o.jpeg",
+            "./img/fifaf.jpg",
         },
       ];
       (function(window, document, undefined){
@@ -119,7 +119,7 @@ window.onload = init;
 })(window, document, undefined)
       
     </script>
-    <title>Hello, world!</title>
+    <title>Meus Jogos</title>
   </head>
   <body>
     <!-- <img src='/img/Menu.png' /> -->
